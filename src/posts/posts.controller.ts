@@ -29,13 +29,13 @@ export class PostsController {
     @UseGuards(AuthGuard)
     @Patch()
     update(@Body() updatePostDto:UpdatePostDto){
-        return this.update(updatePostDto)
+        return this.postService.update(updatePostDto)
     }
 
     @UseGuards(AuthGuard)
     @Delete(':id')
     remove(@Param('id') id:number){
-        this.postService.remove(id)
+       return this.postService.remove(id)
     }
 
 }
